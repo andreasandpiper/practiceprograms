@@ -1,14 +1,19 @@
-puts "Welcome to the Tower of Hanoi Game. The object of the game is to move the stack of discs to a different tower in 7 moves. The discs are arranged so that the largest (number 3) is on the bottom, and the smallest (number 1) on the top. For today's game, you will be playing with 3 discs. However, there is a catch! You can only stack a smaller disc on a larger one, but not vice versa! Good luck!"
+puts "Welcome to the Tower of Hanoi Game. The object of the game is to move the stack of discs to a different tower as few moves as possible. The discs are arranged so that the largest (which is the largest number) is on the bottom, and the smallest (number 1) on the top. However, there is a catch! You can only stack a smaller disc on a larger one, but not vice versa! Good luck!"
+puts "How many discs would you like to play with?"
+discs= gets.chomp.to_i
+
 
 towers = [
-[3,2,1],
+[].reverse,
 [],
 []
 ]
+(1..discs).each {|n|towers[0].push(n) }
+goal= towers[0].reverse
+moves = 2**discs-1
+puts "Alright! You have #{moves} to solve the puzzle!"
 
-goal= [3,2,1]
-moves= 7
-
+towers[0]= towers[0].reverse
 until moves == 0
 
   puts "Your tower looks like this:"
@@ -37,12 +42,14 @@ until moves == 0
   else
     puts "Try again! Remember, you can only pick from 1, 2 or 3!"
   end
-   puts "You have #{moves} moves left!"
-  if  moves < 6  && towers[0] == goal || towers[1] == goal
+   puts "You have used #{moves} moves"
+  if  moves > 1  && towers[1] == goal || towers[2] == goal
     puts "tower1: #{towers[0]}"
     puts "tower2: #{towers[1]}"
     puts "tower3: #{towers[2]}"
     puts "Congratulations you win!"
+  elsif moves < discs
+    puts "Keep trying!"
   else
     puts "You were defeated by the Towers of Hanoi. You lost, try playing again!"
   end
