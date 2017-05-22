@@ -1,4 +1,4 @@
-puts "Welcome to the Tower of Hanoi Game. The object of the game is to move the stack of discs to a different tower as few moves as possible. The discs are arranged so that the largest (which is the largest number) is on the bottom, and the smallest (number 1) on the top. However, there is a catch! You can only stack a smaller disc on a larger one, but not vice versa! Good luck!"
+puts "Welcome to the Tower of Hanoi Game. The object of the game is to move the stack of discs to a different tower in as few moves as possible. The discs are arranged so that the largest disc is on the bottom, and the smallest on the top, 1 being the smallest. However, there is a catch! You can only stack a smaller disc on a larger one, but not vice versa! Good luck!"
 puts "How many discs would you like to play with?"
 discs= gets.chomp.to_i
 
@@ -48,7 +48,7 @@ until moves == 0
     puts "tower2: #{towers[1]}"
     puts "tower3: #{towers[2]}"
     puts "Congratulations you win!"
-  elsif moves > 0 
+  elsif moves > 0
     puts "Keep trying!"
   else
     puts "You were defeated by the Towers of Hanoi. You lost, try playing again!"
