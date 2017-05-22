@@ -22,16 +22,16 @@ until moves == 0
   puts "tower 3: #{towers[2]}"
 
   puts "Where would you like to pick up a disc?"
-  pick = gets.chomp.to_i
+  movefrom = gets.chomp.to_i
   puts"Where would you like to place the disc?"
-  destination= gets.chomp.to_i
+  moveto= gets.chomp.to_i
 
-  if [1, 2, 3].include?(pick) && [1,2,3].include?(destination)
-    pickedtower= towers[pick - 1][0..-1]
-    destinationtower= towers[destination - 1][0..-1]
-   if pickedtower.empty? == false
-     if destinationtower.length == 0 || pickedtower.last < destinationtower.last
-       towers[destination - 1] << towers[pick - 1].pop
+  if [1, 2, 3].include?(movefrom) && [1,2,3].include?(moveto)
+    movedfromtower= towers[movefrom - 1][0..-1]
+    movedtotower= towers[moveto - 1][0..-1]
+   if movedfromtower.empty? == false
+     if movedtotower.length == 0 || movedfromtower.last < movedtotower.last
+       towers[moveto - 1] << towers[movefrom - 1].pop
        moves -= 1
      else
        puts "Ah-ha! You can only put smaller discs on top! Try again"
