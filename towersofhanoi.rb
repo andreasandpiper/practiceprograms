@@ -1,5 +1,5 @@
 puts "Welcome to the Tower of Hanoi Game. The object of the game is to move the stack of discs to a different tower in as few moves as possible. The discs are arranged so that the largest disc is on the bottom, and the smallest on the top, 1 being the smallest. However, there is a catch! You can only stack a smaller disc on a larger one, but not vice versa! Good luck!"
-puts "How many discs would you like to play with?"
+puts "How many discs would you like to play with? If you want to play an easy warm up, I recommend 3 or 4!"
 discs= gets.chomp.to_i
 
 
