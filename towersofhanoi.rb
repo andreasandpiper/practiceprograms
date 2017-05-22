@@ -48,7 +48,7 @@ until moves == 0
     puts "tower2: #{towers[1]}"
     puts "tower3: #{towers[2]}"
     puts "Congratulations you win!"
-  elsif moves < discs
+  elsif moves > 0 
     puts "Keep trying!"
   else
     puts "You were defeated by the Towers of Hanoi. You lost, try playing again!"
