@@ -70,7 +70,7 @@ while (is_winner == False or len(played) < 9):
     print "Alright %s, it is time to pick!" % (X) #player X picks
     X_pick = int(raw_input())
     while X_pick in played:
-    	X_pick = int(raw_input("Pick a different number that has not been picked. Look at the second line to see what has been chosen so far\n"))
+    	X_pick = int(raw_input("Pick a different number that has not been picked. This is what has been chosen so far: %s\n" % played))
     else:
 	    playerX.append(X_pick)
 	    played.append(X_pick)
@@ -87,7 +87,7 @@ while (is_winner == False or len(played) < 9):
     print "Alright %s, it is time to pick!" % (O) #player X picks
     O_pick = int(raw_input())
     while O_pick in played:
-    	O_pick = int(raw_input("Pick a different number that has not been picked. Look at the second line to see what has been chosen so far\n"))
+    	O_pick = int(raw_input("Pick a different number that has not been picked.  This is what has been chosen so far: %s\n" % played))
     else:
     	playerO.append(O_pick)
     	played.append(O_pick)
