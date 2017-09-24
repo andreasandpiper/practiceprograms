@@ -63,7 +63,7 @@ while not O.isalpha():
 
 print "%s is player X and %s is player O. \nNow that I have two players, I will explain the game. Every time it's your turn I will display..... the board,  what you have picked so far and what has already been picked. You will then enter then number of the square you would like to pick. Best of luck to both of you!" % (X, O)
 
-while (is_winner == False or len(played) < 9):
+while (is_winner == False):
     game_board() #show board
     print "%s, this is what you have picked so far: %s" % (X, playerX)#show what player X has picked
     print "This is what has already been picked: %s" % (played)#show what has been picked over all
@@ -75,10 +75,14 @@ while (is_winner == False or len(played) < 9):
 	    playerX.append(X_pick)
 	    played.append(X_pick)
 	    if (len(playerX) >=3):
-		    if (check_winner(playerX)):
-		    	print "Congratulations, %s, you win!! Your winning match was %s" % (X, playerX)
-		    	is_winner = True # check to see if X array includes any of the winning combos
-		    	break
+	    	if (check_winner(playerX)):
+	    		print "Congratulations, %s, you win!!" % (X)
+	    		is_winner = True # check to see if X array includes any of the winning combos
+	    		break
+	    if (len(played) > 8):
+			print "Cats Game!"
+			is_winner = True
+			break
 
     #repeat for player O
     game_board() #show board
@@ -87,12 +91,16 @@ while (is_winner == False or len(played) < 9):
     print "Alright %s, it is time to pick!" % (O) #player X picks
     O_pick = int(raw_input())
     while O_pick in played:
-    	O_pick = int(raw_input("Pick a different number that has not been picked.  This is what has been chosen so far: %s\n" % played))
+    	O_pick = int(raw_input("Pick a different number that has not been picked. This is what has been chosen so far: %s\n" % played))
     else:
     	playerO.append(O_pick)
     	played.append(O_pick)
-    	if (len(playerO) >=3):
+    	if (len(playerO) >=3 and len(played) < 9):
     		if (check_winner(playerO)):
-    			print "Congratulations, %s, you win!! Your winning match was %s" % (O, playerO)
+    			print "Congratulations, %s, you win!!" % (O)
     			is_winner = True # check to see if X array includes any of the winning combos
     			break
+    	if (len(played) > 8):
+    		print ("Cats Game!")
+    		is_winner = True
+    		break 
